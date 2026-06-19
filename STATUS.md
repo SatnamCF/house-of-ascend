@@ -33,10 +33,11 @@ services clearly, and drive qualified brand enquiries through a clear contact pa
 - Verified: page + CSS + JS + assets all return 200; renders correctly on the live URL.
 
 ## Updates
-- **Logo corrected**: replaced the earlier SVG recreation with the real logo. The actual
-  gold A-arrow symbol is cropped from the badge (`assets/logo-mark.png`, transparent) for
-  the nav, and the full circular badge (`assets/logo.png`) anchors the footer. Favicons
-  regenerated from the real mark. Old `monogram.svg` / `favicon.svg` removed.
+- **Logo corrected**: the site now uses the exact logo image everywhere. The full circular
+  badge (`assets/logo.png`) is used in both the nav and the footer; it is circular-masked
+  (transparent corners) so it sits as a clean medallion with no black box over the hero.
+  The separate text wordmark was removed from the nav since the badge contains it. Favicons
+  regenerated from the badge. Earlier SVG recreation and cropped `logo-mark.png` removed.
 - **Creator Network section added** (`#creators`): talent onboarding copy with a CTA to the
   Google onboarding form (forms.gle) plus an Instagram link (@thehouseofascend). Added to
   the nav and footer navigation.
