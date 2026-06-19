@@ -1,8 +1,9 @@
 # Raw brand source material — kept out of the public repo
-# (the logo is already exported to assets/logo.png)
+# (the logo is already exported to assets/logo.png + assets/logo-mark.png)
 IMG_*.PNG
 IMG_*.png
 WhatsApp Image*
+Signup form.txt
 
 # Local server / tooling artifacts
 server.log

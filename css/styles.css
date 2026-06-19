@@ -137,7 +137,7 @@ button { font-family: inherit; cursor: pointer; }
   margin-top: 2px;
 }
 
-.nav__links { display: flex; align-items: center; gap: 2.1rem; }
+.nav__links { display: flex; align-items: center; gap: 1.7rem; }
 .nav__links > a:not(.btn) {
   font-size: 0.82rem;
   letter-spacing: 0.06em;
@@ -341,13 +341,29 @@ button { font-family: inherit; cursor: pointer; }
 .field input:focus, .field textarea:focus { outline: none; border-color: rgba(212,175,55,0.6); background: rgba(212,175,55,0.04); }
 .form__note { font-size: 0.85rem; margin: 0.2rem 0 0; min-height: 1.2em; color: var(--gold-light); }
 
+/* ----------------------------- creators / onboarding ----------------------------- */
+.creators__panel {
+  max-width: 780px; margin: 0 auto; text-align: center;
+  padding: clamp(2.4rem, 5vw, 3.8rem);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background:
+    radial-gradient(130% 150% at 50% 0%, rgba(212, 175, 55, 0.10), transparent 60%),
+    var(--black-card);
+  position: relative; overflow: hidden;
+}
+.creators__panel::after {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; background: var(--gold-grad); opacity: 0.8;
+}
+.creators__cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; }
+
 /* ----------------------------- footer ----------------------------- */
-.footer { border-top: 1px solid var(--line-soft); padding-block: 3rem; }
-.footer__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.6rem; }
-.footer__links { display: flex; flex-wrap: wrap; gap: 1.6rem; }
+.footer { border-top: 1px solid var(--line-soft); padding-block: 3.4rem; }
+.footer__inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.8rem; }
+.footer__logo img { width: clamp(110px, 14vw, 150px); height: auto; filter: drop-shadow(0 4px 20px rgba(212, 175, 55, 0.18)); }
+.footer__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.6rem; }
 .footer__links a { font-size: 0.82rem; letter-spacing: 0.06em; color: var(--text-muted); transition: color 0.3s var(--ease); }
 .footer__links a:hover { color: var(--gold-light); }
-.footer__copy { font-size: 0.78rem; color: var(--text-muted); margin: 0; width: 100%; padding-top: 1.4rem; border-top: 1px solid var(--line-soft); }
+.footer__copy { font-size: 0.78rem; color: var(--text-muted); margin: 0; width: 100%; padding-top: 1.8rem; border-top: 1px solid var(--line-soft); }
 
 /* ----------------------------- reveal animation ----------------------------- */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }

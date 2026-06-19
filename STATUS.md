@@ -32,6 +32,15 @@ services clearly, and drive qualified brand enquiries through a clear contact pa
 - Repo: https://github.com/SatnamCF/house-of-ascend (public, `main` branch, root).
 - Verified: page + CSS + JS + assets all return 200; renders correctly on the live URL.
 
+## Updates
+- **Logo corrected**: replaced the earlier SVG recreation with the real logo. The actual
+  gold A-arrow symbol is cropped from the badge (`assets/logo-mark.png`, transparent) for
+  the nav, and the full circular badge (`assets/logo.png`) anchors the footer. Favicons
+  regenerated from the real mark. Old `monogram.svg` / `favicon.svg` removed.
+- **Creator Network section added** (`#creators`): talent onboarding copy with a CTA to the
+  Google onboarding form (forms.gle) plus an Instagram link (@thehouseofascend). Added to
+  the nav and footer navigation.
+
 ## Next Steps
 - Confirm content/wording with the client and replace illustrative stat numbers with real ones.
 - Optional: wire the contact form to a real backend (Formspree / Netlify Forms) instead of mailto.
