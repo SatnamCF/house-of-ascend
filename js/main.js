@@ -66,11 +66,13 @@
     requestAnimationFrame(step);
   }
 
-  /* --- contact form (mailto fallback — no backend yet) --- */
+  /* --- contact form: posts straight to the inbox via FormSubmit (no backend needed) --- */
+  const FORM_ENDPOINT = "https://formsubmit.co/ajax/thehouseofascend@gmail.com";
   const form = document.getElementById("contactForm");
   const note = document.getElementById("formNote");
   if (form) {
-    form.addEventListener("submit", (e) => {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       if (!form.checkValidity()) {
         note.textContent = "Please complete the required fields.";
@@ -78,17 +80,44 @@
         return;
       }
       const data = new FormData(form);
-      const name = encodeURIComponent(data.get("name") || "");
-      const brand = encodeURIComponent(data.get("brand") || "");
-      const email = encodeURIComponent(data.get("email") || "");
-      const message = encodeURIComponent(data.get("message") || "");
-      const subject = `New enquiry from ${data.get("name") || "a brand"}`;
-      const body =
-        `Name: ${name}%0D%0AEmail: ${email}%0D%0ABrand: ${brand}%0D%0A%0D%0A${message}`.replace(/%2520/g, "%20");
+      if (data.get("_honey")) return; // honeypot tripped — silently ignore bots
 
-      note.textContent = "Opening your email app…";
-      window.location.href = `mailto:thehouseofascend@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-      form.reset();
+      const original = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+      note.style.color = "";
+      note.textContent = "";
+
+      const payload = {
+        name: data.get("name") || "",
+        email: data.get("email") || "",
+        brand: data.get("brand") || "",
+        message: data.get("message") || "",
+        _subject: `New enquiry from ${data.get("name") || "a brand"} — House of Ascend`,
+        _template: "table",
+        _captcha: "false",
+      };
+
+      try {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && String(json.success) === "true") {
+          form.reset();
+          note.textContent = "Thank you — your message has been sent. We'll be in touch shortly.";
+        } else {
+          throw new Error(json.message || "Request failed");
+        }
+      } catch (err) {
+        note.style.color = "#e6a17a";
+        note.textContent = "Sorry, something went wrong. Please email us directly at thehouseofascend@gmail.com.";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = original;
+      }
     });
   }
 })();
