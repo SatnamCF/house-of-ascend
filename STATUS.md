@@ -27,13 +27,15 @@ services clearly, and drive qualified brand enquiries through a clear contact pa
 - Interactions in `js/main.js`: sticky nav, mobile menu, IntersectionObserver reveals,
   animated counters, contact form (mailto fallback — no backend yet).
 
-## In Progress
-- Local visual verification.
+## Deployed
+- Live on **GitHub Pages**: https://satnamcf.github.io/house-of-ascend/
+- Repo: https://github.com/SatnamCF/house-of-ascend (public, `main` branch, root).
+- Verified: page + CSS + JS + assets all return 200; renders correctly on the live URL.
 
 ## Next Steps
 - Confirm content/wording with the client and replace illustrative stat numbers with real ones.
-- Decide hosting (static host: GitHub Pages / Netlify / Vercel) and deploy.
 - Optional: wire the contact form to a real backend (Formspree / Netlify Forms) instead of mailto.
+- Optional: add a custom domain (e.g. thehouseofascend.com) via Pages settings + DNS.
 
 ## Blockers / Decisions
 - **Single-page** marketing site chosen over multi-page for a brand of this scope (fast, focused, easy to host). Revisit if a blog/case-study library is needed.
