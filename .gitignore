@@ -1,0 +1,16 @@
+# Raw brand source material — kept out of the public repo
+# (the logo is already exported to assets/logo.png)
+IMG_*.PNG
+IMG_*.png
+WhatsApp Image*
+
+# Local server / tooling artifacts
+server.log
+*.local
+
+# OS / editor junk
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
